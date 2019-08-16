@@ -1,0 +1,51 @@
+header{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-around;
+    border-top: 3px solid lightgray;
+    border-left: 3px solid lightgray;
+    border-right: 3px solid lightgray;
+}
+h1:hover{
+    background:lightblue;
+}
+section{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-evenly;
+}
+section aside{
+    display:flex;
+    justify-content:center;
+    flex-grow:1;
+    border: 3px solid lightgray;
+}
+section main{
+    display:flex;
+    justify-content:center;
+    flex-grow:2;
+    border-top: 3px solid lightgray;
+    border-right: 3px solid lightgray;
+    border-bottom: 3px solid lightgray;
+}
+.show{
+    display:flex;
+    align-items:center;
+}
+.new-edit{
+    display:flex;
+}
+.preview-head{
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+}
+button:not(.rect-button){
+    height:2em;
+    width:2em;
+    border-radius: 50%;
+}
+.rect-button{
+    border-radius:5%;
+    border:1px solid orange;
+}
