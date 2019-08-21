@@ -2,12 +2,9 @@ header{
     display:flex;
     flex-direction:row;
     justify-content:space-around;
-    border-top: 3px solid lightgray;
-    border-left: 3px solid lightgray;
-    border-right: 3px solid lightgray;
-}
-h1:hover{
-    background:lightblue;
+    border-top: 1px solid lightgray;
+    border-left: 1px solid lightgray;
+    border-right: 1px solid lightgray;
 }
 section{
     display:flex;
