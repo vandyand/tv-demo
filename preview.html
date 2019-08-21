@@ -21,12 +21,12 @@
             <div>
                 <h2>Shows</h2>
                 <div class="show">
-                    <p>Show 1</p>
-                    <button>-</button>
+                    <button onclick="clickedShow1()">Show 1</button>
+                    <button onclick="clickedDelete1()">-</button>
                 </div>
                 <div class="show">
-                    <p>Show 2</p>
-                    <button>-</button>
+                    <button onclick="clickedShow2()">Show 2</button>
+                    <button onclick="clickedDelete2()">-</button>
                 </div>
             </div>
         </aside>
@@ -40,5 +40,20 @@
             </div>
         </main>
 </body>
+<script>
+    function clickedShow1(){
+        console.log("clicked show 1!");
+    }
+    function clickedShow2(){
+        console.log("clicked show 2!");
+    }
+    function clickedDelete1(){
+        console.log("clicked delete 1!")
+    }
+    function clickedDelete2(){
+        console.log("clicked delete 2!")
+    }
+
+</script>
 
 </html>
