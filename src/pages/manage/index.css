@@ -1,0 +1,19 @@
+section.bodySection{
+    display:flex;
+    flex-direction:row;
+    flex-grow:1;
+}
+aside.showAside{
+    display:flex;
+    flex-direction:row;
+    flex-grow:1;
+}
+div.asideDiv{
+    display:flex;
+    flex-direction:column;
+}
+main.sectionMain{
+    display:flex;
+    flex-direction:row;
+    flex-grow:2;
+}

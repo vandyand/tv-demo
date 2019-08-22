@@ -4,9 +4,9 @@ export default class Manage extends Component {
     render() {
         return (
             <div>
-                <section>
-                    <aside>
-                        <div>
+                <section className='bodySection'>
+                    <aside className='showAside'>
+                        <div className='asideDiv'>
                             <h2>Shows</h2>
                             <div className="show">
                                 <button>Show 1</button>
@@ -18,7 +18,7 @@ export default class Manage extends Component {
                             </div>
                         </div>
                     </aside>
-                    <main>
+                    <main className='sectionMain'>
                         <div>
                             <h2>New/Edit Show</h2>
                             <div className="new-edit">
