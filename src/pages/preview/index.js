@@ -4,14 +4,6 @@ export default class Manage extends Component {
     render() {
         return (
             <div>
-                <nav>
-                    <a href="manage.html">
-                        <h1>Manage</h1>
-                    </a>
-                    <a href="preview.html">
-                        <h1>Preview</h1>
-                    </a>
-                </nav>
                 <section>
                     <aside>
                         <div>
@@ -32,7 +24,7 @@ export default class Manage extends Component {
                                 <h2>Show Name</h2>
                                 <h3>Rating</h3>
                             </div>
-                            <img src="bobby.png" alt="Bobby"/>
+                            <img src={ require('../../images/bobby.png') } />
                         </div>
                     </main>
                 </section>

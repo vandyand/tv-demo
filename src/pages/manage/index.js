@@ -4,14 +4,6 @@ export default class Manage extends Component {
     render() {
         return (
             <div>
-                <nav>
-                    <a href="manage.html">
-                        Manage
-                </a>
-                    <a href="preview.html">
-                        Preview
-                </a>
-                </nav>
                 <section>
                     <aside>
                         <div>
