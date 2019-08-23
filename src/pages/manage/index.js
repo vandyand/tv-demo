@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
+import SideNav from '../../components/sideNav'
 
 export default class Manage extends Component {
     render() {
         return (
             <div>
                 <section className='bodySection'>
+                    <SideNav thingy="What up dude!?" paragraph="This is a paragraph and in it there are lots of words. Word are great at communicating ideas. Who knew!?"/>
                     <aside className='showAside'>
                         <div className='asideDiv'>
                             <h2>Shows</h2>
