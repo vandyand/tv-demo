@@ -1,25 +1,12 @@
 import React, { Component } from 'react'
-import SideNav from '../../components/sideNav'
+import TVShow from '../../components/tv-show'
 
 export default class Manage extends Component {
     render() {
         return (
             <div>
                 <section className='bodySection'>
-                    <SideNav thingy="What up dude!?" paragraph="This is a paragraph and in it there are lots of words. Word are great at communicating ideas. Who knew!?"/>
-                    <aside className='showAside'>
-                        <div className='asideDiv'>
-                            <h2>Shows</h2>
-                            <div className="show">
-                                <button>Show 1</button>
-                                <button>-</button>
-                            </div>
-                            <div className="show">
-                                <button>Show 2</button>
-                                <button>-</button>
-                            </div>
-                        </div>
-                    </aside>
+                    <TVShow name1="American Ninja Warrior" name2="Parks and Recreation" allowDelete={true}/>
                     <main className='sectionMain'>
                         <div>
                             <h2>New/Edit Show</h2>
@@ -41,6 +28,5 @@ export default class Manage extends Component {
                 </section>
             </div>
         )
-
     }
 }
