@@ -11,6 +11,10 @@ export default class Manage extends Component {
         console.log("tvShowDeleted function ran!")
     }
 
+    saveTVShow = () => {
+        console.log("saveTVShow clicked!")
+    }
+
     render() {
         return (
             <div>
@@ -22,19 +26,19 @@ export default class Manage extends Component {
                     <main className='sectionMain'>
                         <div>
                             <h2>New/Edit Show</h2>
-                            <div className="new-edit">
+                            <div>
                                 <p>Name:</p>
                                 <input type="text" />
                             </div>
-                            <div className="new-edit">
+                            <div>
                                 <p>Rating:</p>
                                 <input type="text" />
                             </div>
-                            <div className="new-edit">
+                            <div>
                                 <p>ImageUrl:</p>
                                 <input type="text" />
                             </div>
-                            <button className="rect-button">Create/Update</button>
+                            <button onClick={this.saveTVShow}>Create/Update</button>
                         </div>
                     </main>
                 </section>

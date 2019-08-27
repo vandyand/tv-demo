@@ -6,9 +6,6 @@ import Manage from './pages/manage/index'
 import Preview from './pages/preview/index'
 import { Route } from 'react-router-dom'
 
-{/*import logo from './logo.svg';*/}
-
-
 function App() {
   return (
     <div className="App">
