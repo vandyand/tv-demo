@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-import TVShow from '../../components/tv-show'
+import TVShow from '../../components/tvShow'
 
 export default class Manage extends Component {
     render() {
         return (
             <div>
                 <section>
-                    <TVShow name1="Game of Thrones" name2="Big Bang Theory"/>
+                    <TVShow name1="Game of Thrones" name2="Big Bang Theory" />
                     <main>
                         <div>
                             <div className="preview-head">

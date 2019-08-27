@@ -1,12 +1,24 @@
 import React, { Component } from 'react'
-import TVShow from '../../components/tv-show'
+import TVShow from '../../components/tvShow'
 
 export default class Manage extends Component {
+    
+    tvShowSelected = () => {
+        console.log("tvShowSelected function ran!")
+    }
+
+    tvShowDeleted = () => {
+        console.log("tvShowDeleted function ran!")
+    }
+
     render() {
         return (
             <div>
                 <section className='bodySection'>
-                    <TVShow name1="American Ninja Warrior" name2="Parks and Recreation" allowDelete={true}/>
+
+                    <TVShow name1="American Ninja Warrior" name2="Parks and Recreation" allowDelete={true}
+                            selectHandler={this.tvShowSelected} deleteHandler={this.tvShowDeleted} />
+                    
                     <main className='sectionMain'>
                         <div>
                             <h2>New/Edit Show</h2>
