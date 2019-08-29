@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import TVShow from '../components/tvShow'
-import './pages.css'
+import '../App.css'
 
 export default class Manage extends Component {
 
@@ -19,25 +19,19 @@ export default class Manage extends Component {
     render() {
         return (
             <div className="manage-page">
-                <div className="tv-show">
-                    <TVShow name1="American Ninja Warrior" name2="Parks and Recreation" allowDelete={true}
-                        selectHandler={this.tvShowSelected} deleteHandler={this.tvShowDeleted} />
-                </div>
+                <TVShow name1="American Ninja Warrior!!!!!!QQQQQQQ" name2="Parks and Recreation" allowDelete={true}
+                    selectHandler={this.tvShowSelected} deleteHandler={this.tvShowDeleted} />
                 <div className="main">
                     <h2>New/Edit Show</h2>
-                    <div className="input-line">
-                        <p>Name:</p>
-                        <input type="text" />
-                    </div>
-                    <div className="input-line">
-                        <p>Rating:</p>
-                        <input type="text" />
-                    </div>
-                    <div className="input-line">
-                        <p>ImageUrl:</p>
-                        <input type="text" />
-                    </div>
-                    <button onClick={this.saveTVShow}>Create/Update</button>
+                    <form className="manage-form">
+                        <label className="manage-page-form">Name:</label>
+                        <input className="manage-page-form" type="text" />
+                        <label className="manage-page-form">Rating:</label>
+                        <input className="manage-page-form" type="text" />
+                        <label className="manage-page-form">ImageUrl:</label>
+                        <input className="manage-page-form" type="text" />
+                        <input className="button create-button" type="button" onClick={this.saveTVShow} value="Create/Update" />
+                    </form>
                 </div>
             </div>
         )

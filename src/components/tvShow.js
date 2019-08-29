@@ -6,26 +6,28 @@ class TVShow extends Component {
     renderDelete = () => {
         if (this.props.allowDelete === true) {
             return (
-                <button onClick={this.props.deleteHandler}>-</button>
+                <button className="delete-button" onClick={this.props.deleteHandler}>x</button>
             )
         }
     }
 
     render() {
         return (
-            <div>
+            <div className="tvshow">
                 <h2>Shows</h2>
-                <div className="show">
-                    <button onClick={this.props.selectHandler}>
-                        {this.props.name1}
-                    </button>
-                    {this.renderDelete()}
-                </div>
-                <div className="show">
-                    <button onClick={this.props.selectHandler}>
-                        {this.props.name2}
-                    </button>
-                    {this.renderDelete()}
+                <div className="shows">
+                    <div className="show">
+                        <button className="button show-button" onClick={this.props.selectHandler}>
+                            {this.props.name1}
+                        </button>
+                        {this.renderDelete()}
+                    </div>
+                    <div className="show">
+                        <button className="button show-button" onClick={this.props.selectHandler}>
+                            {this.props.name2}
+                        </button>
+                        {this.renderDelete()}
+                    </div>
                 </div>
             </div>
         )

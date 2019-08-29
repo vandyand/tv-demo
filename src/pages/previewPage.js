@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import TVShow from '../components/tvShow'
+import '../App.css'
 
 export default class Manage extends Component {
 
@@ -10,9 +11,7 @@ export default class Manage extends Component {
     render() {
         return (
             <div className="preview-page">
-                <div className="tv-show">
-                    <TVShow name1="Game of Thrones" name2="Big Bang Theory" selectHandler={this.tvShowSelected} />
-                </div>
+                <TVShow name1="Game of Thrones" name2="Big Bang Theory" selectHandler={this.tvShowSelected} />
                 <div className="show-box">
                     <div className="preview-head">
                         <h2>Show Name</h2>
