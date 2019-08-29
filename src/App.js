@@ -1,10 +1,9 @@
 import React from 'react';
-import './App.css';
-
-import Navigation from './components/navigation/index'
-import Manage from './pages/manage/index'
-import Preview from './pages/preview/index'
 import { Route } from 'react-router-dom'
+
+import Navigation from './components/navigation'
+import Manage from './pages/managePage'
+import Preview from './pages/previewPage'
 
 function App() {
   return (
@@ -12,7 +11,6 @@ function App() {
       <Navigation/>
       <Route exact path="/" component={Manage} />
       <Route exact path="/preview-page" component={Preview} />
-
     </div>
   );
 }

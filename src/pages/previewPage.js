@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import TVShow from '../../components/tvShow'
+import TVShow from '../components/tvShow'
 
 export default class Manage extends Component {
     render() {
@@ -13,7 +13,7 @@ export default class Manage extends Component {
                                 <h2>Show Name</h2>
                                 <h3>Rating</h3>
                             </div>
-                            <img src={ require('../../images/bobby.png')} alt="" />
+                            <img src={ require('../images/bobby.png')} alt="" />
                         </div>
                     </main>
                 </section>

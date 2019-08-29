@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import './index.css'
+import './components.css'
 
 class Navigation extends Component {
     render() {
         return (
-            <nav className='topNav'>
+            <nav className='navbar'>
                 <ul>
-                    <li><Link to='/'>Manage Page</Link></li>
-                    <li><Link to='/preview-page'>Preview Page</Link></li>
+                    <li><Link to='/'>Manage</Link></li>
+                    <li><Link to='/preview-page'>Preview</Link></li>
                 </ul>
             </nav>
         )
