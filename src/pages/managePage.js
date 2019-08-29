@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import TVShow from '../components/tvShow'
+import './pages.css'
 
 export default class Manage extends Component {
 
@@ -17,27 +18,27 @@ export default class Manage extends Component {
 
     render() {
         return (
-            <div className="manage-page">>
-                <TVShow name1="American Ninja Warrior" name2="Parks and Recreation" allowDelete={true}
-                    selectHandler={this.tvShowSelected} deleteHandler={this.tvShowDeleted} />
-                <main className='manage-main'>
+            <div className="manage-page">
+                <div className="tv-show">
+                    <TVShow name1="American Ninja Warrior" name2="Parks and Recreation" allowDelete={true}
+                        selectHandler={this.tvShowSelected} deleteHandler={this.tvShowDeleted} />
+                </div>
+                <div className="main">
+                    <h2>New/Edit Show</h2>
                     <div>
-                        <h2>New/Edit Show</h2>
-                        <div>
-                            <p>Name:</p>
-                            <input type="text" />
-                        </div>
-                        <div>
-                            <p>Rating:</p>
-                            <input type="text" />
-                        </div>
-                        <div>
-                            <p>ImageUrl:</p>
-                            <input type="text" />
-                        </div>
-                        <button onClick={this.saveTVShow}>Create/Update</button>
+                        <p>Name:</p>
+                        <input type="text" />
                     </div>
-                </main>
+                    <div>
+                        <p>Rating:</p>
+                        <input type="text" />
+                    </div>
+                    <div>
+                        <p>ImageUrl:</p>
+                        <input type="text" />
+                    </div>
+                    <button onClick={this.saveTVShow}>Create/Update</button>
+                </div>
             </div>
         )
     }

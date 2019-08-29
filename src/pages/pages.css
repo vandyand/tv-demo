@@ -1,0 +1,36 @@
+.manage-page{
+    display:flex;
+}
+
+.preview-page{
+    display:flex;
+}
+
+.tv-show{
+    flex-grow:1;
+    border:1px solid black;
+    display:flex;
+    justify-content: center;
+}
+
+.main{
+    flex-grow:3;
+    border:1px solid black;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.show-box{
+    flex-grow:3;
+    border:1px solid black;
+}
+
+.preview-head{
+    display:flex;
+    justify-content:space-between;
+}
+
+.show-box img{
+    width:100%;
+}
