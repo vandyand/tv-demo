@@ -16,11 +16,15 @@ class TVShow extends Component {
             <div>
                 <h2>Shows</h2>
                 <div className="show">
-                    <button onClick={this.props.selectHandler}>{this.props.name1}</button>
+                    <button onClick={this.props.selectHandler}>
+                        {this.props.name1}
+                    </button>
                     {this.renderDelete()}
                 </div>
                 <div className="show">
-                    <button onClick={this.props.selectHandler}>{this.props.name2}</button>
+                    <button onClick={this.props.selectHandler}>
+                        {this.props.name2}
+                    </button>
                     {this.renderDelete()}
                 </div>
             </div>

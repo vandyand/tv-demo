@@ -7,8 +7,8 @@ class Navigation extends Component {
         return (
             <nav className='navbar'>
                 <ul>
-                    <li><Link to='/'>Manage</Link></li>
-                    <li><Link to='/preview-page'>Preview</Link></li>
+                    <li><Link to='/'><button>Manage</button></Link></li>
+                    <li><Link to='/preview-page'><button>Preview</button></Link></li>
                 </ul>
             </nav>
         )

@@ -25,15 +25,15 @@ export default class Manage extends Component {
                 </div>
                 <div className="main">
                     <h2>New/Edit Show</h2>
-                    <div>
+                    <div className="input-line">
                         <p>Name:</p>
                         <input type="text" />
                     </div>
-                    <div>
+                    <div className="input-line">
                         <p>Rating:</p>
                         <input type="text" />
                     </div>
-                    <div>
+                    <div className="input-line">
                         <p>ImageUrl:</p>
                         <input type="text" />
                     </div>

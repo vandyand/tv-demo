@@ -34,3 +34,8 @@
 .show-box img{
     width:100%;
 }
+
+.input-line{
+    display:flex;
+    
+}

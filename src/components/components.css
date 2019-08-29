@@ -1,6 +1,6 @@
 .navbar{
     background-color:#999;
-    padding:10px 0px 10px 5px;
+    padding:16px;
 }
 
 .navbar ul{
@@ -9,19 +9,24 @@
 }
 
 .navbar li{
-    text-transform:uppercase;
     list-style:none;
-    padding:5px;
+    padding-right:8px;
 }
 
-a{
+a button{
     background-color:#333;
     color:#ddd;
+    text-transform:uppercase;
+    padding:16px;
     text-decoration:none;
-    padding:15px;
+    border:none;
 }
 
-a:hover{
+a button:hover{
     background-color:#000;
     color:#888;
+}
+
+button.shows{
+    
 }
