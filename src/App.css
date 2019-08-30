@@ -26,13 +26,6 @@
     display:flex;
 }
 
-.tv-show{
-    flex-basis:25%;
-    display:flex;
-    justify-content: center;
-    word-wrap: wrap break-word;
-}
-
 .main{
     display:flex;
     flex-direction:column;
@@ -79,20 +72,17 @@ input.manage-page-form{
     width:100%;
 }
 
-
-.tvshow{
+.shows{
     flex-basis:25%;
     display:flex;
     flex-direction:column;
     align-items:center;
-}
-
-.shows{
     margin-top:16px;
     width:80%;
 }
 
 .show{
+    flex-basis:25%;
     display:flex;
     justify-content:center;
     box-sizing:border-box;

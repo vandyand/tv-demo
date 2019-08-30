@@ -12,16 +12,18 @@ class TVShow extends Component {
     }
 
     render() {
-        return (
-            <div className="tvshow">
+        if (this.props.name !== "") {
+            return (
                 <div className="show">
                     <button className="button show-button" onClick={this.props.selectHandler}>
                         {this.props.name}
                     </button>
                     {this.renderDelete()}
                 </div>
-            </div>
-        )
+            )
+        } else {
+            return (<div></div>);
+        }
     }
 }
 

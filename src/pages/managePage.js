@@ -5,47 +5,46 @@ import '../App.css'
 export default class Manage extends Component {
 
     state = {
-        input: {
-            name: "",
-            rating: "",
-            imageUrl: "",
-        },
-        show: {
-            name: "",
-            rating: "",
-            imageUrl: "",
-        }
-
+        inputName: "",
+        inputRating: "",
+        inputImageUrl: "",
+        showName: "",
+        showRating: "",
+        showImageUrl: "",
     }
 
     tvShowSelected = () => {
         this.setState({
-            
+            inputName: this.state.showName,
+            inputRating: this.state.showRating,
+            inputImageUrl: this.state.showImageUrl,
         })
     }
 
     tvShowDeleted = () => {
-        console.log("tvShowDeleted function ran!")
+        this.setState({
+            showName: "",
+            showRating: "",
+            showImageUrl: "",
+        })
     }
 
     saveTVShow = () => {
         this.setState({
-            show: {
-                name:this.state.input.name,
-                rating:this.state.input.rating,
-                imageUrl:this.state.input.inputImageUrl,
-            },
-            input: {
-                name:"",
-                rating:"",
-                imageUrl:"",
-            }
+            showName: this.state.inputName,
+            showRating: this.state.inputRating,
+            showImageUrl: this.state.inputImageUrl,
+
+            inputName: "",
+            inputRating: "",
+            inputImageUrl: "",
+
         })
     }
 
     renderShows = () => {
         return (
-            <TVShow name={this.state.show.name} allowDelete={true}
+            <TVShow name={this.state.showName} allowDelete={true}
                 selectHandler={this.tvShowSelected} deleteHandler={this.tvShowDeleted} />
         )
     }
@@ -54,23 +53,31 @@ export default class Manage extends Component {
         console.log(this.state)
         return (
             <div className="manage-page">
-                <h2>Shows</h2>
-                {this.renderShows()}
+                <div className="shows">
+                    <h2>Shows</h2>
+                    {this.renderShows()}
+                </div>
                 <div className="main">
                     <h2>New/Edit Show</h2>
                     <form className="manage-form">
                         <label className="manage-page-form">Name:</label>
-                        <input className="manage-page-form" type="text" value={this.state.input.name} onChange={(e) => { this.setState({ input:{name:e.target.value,
-                                                                                                                                                     rating:this.state.input.rating,
-                                                                                                                                                     imageUrl:this.state.input.imageUrl,} }) }} />
+                        <input className="manage-page-form" type="text" value={this.state.inputName} onChange={(e) => {
+                            this.setState({
+                                inputName: e.target.value
+                            })
+                        }} />
                         <label className="manage-page-form">Rating:</label>
-                        <input className="manage-page-form" type="text" value={this.state.input.rating} onChange={(e) => { this.setState({ input:{name:this.state.input.name,
-                                                                                                                                                     rating:e.target.value,
-                                                                                                                                                     imageUrl:this.state.input.imageUrl,} }) }} />
+                        <input className="manage-page-form" type="text" value={this.state.inputRating} onChange={(e) => {
+                            this.setState({
+                                inputRating: e.target.value
+                            })
+                        }} />
                         <label className="manage-page-form">ImageUrl:</label>
-                        <input className="manage-page-form" type="text" value={this.state.input.imageUrl} onChange={(e) => { this.setState({ input:{name:this.state.input.name,
-                                                                                                                                                     rating:this.state.input.rating,
-                                                                                                                                                     imageUrl:e.target.value,} }) }} />
+                        <input className="manage-page-form" type="text" value={this.state.inputImageUrl} onChange={(e) => {
+                            this.setState({
+                                inputImageUrl: e.target.value
+                            })
+                        }} />
                         <input className="button create-button" type="button" onClick={this.saveTVShow} value="Create/Update" />
                     </form>
                 </div>

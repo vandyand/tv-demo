@@ -9,7 +9,7 @@ export default class Manage extends Component {
     }
 
     renderShows = () => {
-        return(
+        return (
             <TVShow name="Game of Thrones" selectHandler={this.tvShowSelected} />
         )
     }
