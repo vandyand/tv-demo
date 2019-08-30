@@ -8,10 +8,17 @@ export default class Manage extends Component {
         console.log("tvShowSelected function ran!")
     }
 
+    renderShows = () => {
+        return(
+            <TVShow name="Game of Thrones" selectHandler={this.tvShowSelected} />
+        )
+    }
+
     render() {
         return (
             <div className="preview-page">
-                <TVShow name1="Game of Thrones" name2="Big Bang Theory" selectHandler={this.tvShowSelected} />
+                <h2>Shows</h2>
+                {this.renderShows()}
                 <div className="show-box">
                     <div className="preview-head">
                         <h2>Show Name</h2>

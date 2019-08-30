@@ -14,20 +14,11 @@ class TVShow extends Component {
     render() {
         return (
             <div className="tvshow">
-                <h2>Shows</h2>
-                <div className="shows">
-                    <div className="show">
-                        <button className="button show-button" onClick={this.props.selectHandler}>
-                            {this.props.name1}
-                        </button>
-                        {this.renderDelete()}
-                    </div>
-                    <div className="show">
-                        <button className="button show-button" onClick={this.props.selectHandler}>
-                            {this.props.name2}
-                        </button>
-                        {this.renderDelete()}
-                    </div>
+                <div className="show">
+                    <button className="button show-button" onClick={this.props.selectHandler}>
+                        {this.props.name}
+                    </button>
+                    {this.renderDelete()}
                 </div>
             </div>
         )
