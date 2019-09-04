@@ -15,7 +15,7 @@ class TVShow extends Component {
         if (this.props.name !== "") {
             return (
                 <div className="show">
-                    <button className="button show-button" onClick={this.props.selectHandler}>
+                    <button className="button show-button" onClick={()=>this.props.selectHandler('message from child')}>
                         {this.props.name}
                     </button>
                     {this.renderDelete()}

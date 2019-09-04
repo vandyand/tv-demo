@@ -13,7 +13,8 @@ export default class Manage extends Component {
         showImageUrl: "",
     }
 
-    tvShowSelected = () => {
+    tvShowSelected = (stringFromChild) => {
+        console.log(stringFromChild);
         this.setState({
             inputName: this.state.showName,
             inputRating: this.state.showRating,
@@ -45,7 +46,7 @@ export default class Manage extends Component {
     renderShows = () => {
         return (
             <TVShow name={this.state.showName} allowDelete={true}
-                selectHandler={this.tvShowSelected} deleteHandler={this.tvShowDeleted} />
+                selectHandler={(e) => this.tvShowSelected(e)} deleteHandler={this.tvShowDeleted} />
         )
     }
 
