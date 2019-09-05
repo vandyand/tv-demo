@@ -28,8 +28,7 @@ class TVShow extends Component {
 }
 
 TVShow.propTypes = {
-    name1: PropTypes.string,
-    name2: PropTypes.string,
+    name: PropTypes.string,
     allowDelete: PropTypes.bool,
     deleteHandler: PropTypes.func,
     selectHandler: PropTypes.func,

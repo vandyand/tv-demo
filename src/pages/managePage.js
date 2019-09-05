@@ -5,12 +5,12 @@ import '../App.css'
 export default class Manage extends Component {
 
     state = {
-        inputName: "",
-        inputRating: "",
-        inputImageUrl: "",
-        showName: "",
-        showRating: "",
-        showImageUrl: "",
+        inputName: 'default name',
+        inputRating: 'default rating',
+        inputImageUrl: 'default imageUrl',
+        showName: '',
+        showRating: '',
+        showImageUrl: '',
     }
 
     tvShowSelected = (stringFromChild) => {
@@ -24,9 +24,9 @@ export default class Manage extends Component {
 
     tvShowDeleted = () => {
         this.setState({
-            showName: "",
-            showRating: "",
-            showImageUrl: "",
+            showName: '',
+            showRating: '',
+            showImageUrl: ''
         })
     }
 
