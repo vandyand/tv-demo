@@ -24,16 +24,22 @@ class ManagePage extends Component {
     saveShow = (show) => {
         this.props.saveShow(show);
         this.setState({
-            nameInProgress:'',
-            ratingInProgress:'',
-            imageInProgress:'',
+            nameInProgress: '',
+            ratingInProgress: '',
+            imageInProgress: '',
         })
     }
 
     renderShows = () => {
-        return this.props.shows.map((show,ind) => {
-            return <TVShow key={ind} name={show.name} allowDelete={true} selectHandler={(e) => this.showSelected(e)} deleteHandler={this.showDeleted} />
-        })
+        // return this.props.shows.map((show,ind) => {
+        //     return <TVShow key={ind} name={show.name} allowDelete={true} selectHandler={(e) => this.showSelected(e)} deleteHandler={this.showDeleted} />
+        // })
+
+        let shows = []
+        for (let i = 0; i < this.props.shows.length; i++) {
+            shows.push(<TVShow key={i} name={this.props.shows[i].name} allowDelete={true} selectHandler={(e) => this.showSelected(e)} deleteHandler={this.showDeleted} />)
+        }
+        return shows
     }
 
     render() {
@@ -65,10 +71,10 @@ class ManagePage extends Component {
                                 imageInProgress: e.target.value
                             })
                         }} />
-                        <input className="button create-button" type="button" onClick={()=>this.saveShow({
-                            name:this.state.nameInProgress,
-                            rating:this.state.ratingInProgress,
-                            image:this.state.imageInProgress,
+                        <input className="button create-button" type="button" onClick={() => this.saveShow({
+                            name: this.state.nameInProgress,
+                            rating: this.state.ratingInProgress,
+                            image: this.state.imageInProgress,
                         })} value="Create/Update" />
                     </form>
                 </div>
