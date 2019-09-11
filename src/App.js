@@ -16,7 +16,7 @@ class App extends React.Component {
   }
 
   renderPreviewPage = () => {
-    return <PreviewPage show={this.state.shows[0]} />
+    return <PreviewPage shows={this.state.shows} />
   }
 
   showDeleted = (show) => {

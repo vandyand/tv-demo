@@ -85,7 +85,7 @@ class ManagePage extends Component {
 
 
 ManagePage.propTypes = {
-    show: PropTypes.object,
+    shows: PropTypes.array,
     showDelete: PropTypes.func,
     saveShow: PropTypes.func,
 }

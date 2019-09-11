@@ -6,40 +6,47 @@ import '../App.css'
 class PreviewPage extends Component {
 
     state = {
-        selectedShow:{
-            name:'default preview name',
-            rating:'default preview rating',
-            imageUrl:'default preview image',
-        }
+        name:'',
+        rating:'',
+        image:'',
     }
 
-    showSelected = () => {
-        this.setState({
-            selectedShow:{
-                name:this.props.show.name,
-                rating:this.props.show.rating,
-                imageUrl:this.props.show.imageUrl,
-            }
-        })
+    showSelected = (show) => {}
+
+    avgRating = () => {
+        if (this.props.shows.length === 0){
+            return 0
+        }
+
+        let summ = this.props.shows.reduce((acc,show)=>
+            acc + parseInt(show.rating),0
+        )
+        let mean = summ / this.props.shows.length
+        return mean
     }
 
     renderShows = () => {
-        return (
-            <TVShow name={this.props.show.name} selectHandler={this.showSelected} />
-        )
+        return this.props.shows.filter((show) => {
+            return parseInt(show.rating) <= 4
+        }).map((show,ind) => {
+            return <TVShow key={ind} name={show.name} allowDelete={true} selectHandler={(e) => this.showSelected(e)} deleteHandler={this.showDeleted} />
+        })
     }
 
     render() {
         return (
             <div className="preview-page">
-                <h2>Shows</h2>
-                {this.renderShows()}
+                <div className="shows">
+                    <h2>Shows</h2>
+                    {this.avgRating()}
+                    {this.renderShows()}
+                </div>
                 <div className="show-box">
                     <div className="preview-head">
-                        <h2>{this.state.selectedShow.name}</h2>
-                        <h3>{this.state.selectedShow.rating}</h3>
+                        <h2>{this.state.name}</h2>
+                        <h3>{this.state.rating}</h3>
                     </div>
-                    <h2>{this.state.selectedShow.imageUrl}</h2>
+                    <h2>{this.state.image}</h2>
                     {/*<img src={require(this.state.selectedShow.imageUrl)} alt="" />*/}
                 </div>
             </div>
@@ -48,7 +55,7 @@ class PreviewPage extends Component {
 }
 
 PreviewPage.propTypes = {
-    show: PropTypes.object,
+    shows: PropTypes.array,
 }
 
 export default PreviewPage
