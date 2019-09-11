@@ -1,16 +1,31 @@
 import React, { Component } from 'react'
 import TVShow from '../components/tvShow'
+import PropTypes from 'prop-types'
 import '../App.css'
 
-export default class Manage extends Component {
+class PreviewPage extends Component {
 
-    tvShowSelected = () => {
-        console.log("tvShowSelected function ran!")
+    state = {
+        selectedShow:{
+            name:'default preview name',
+            rating:'default preview rating',
+            imageUrl:'default preview image',
+        }
+    }
+
+    showSelected = () => {
+        this.setState({
+            selectedShow:{
+                name:this.props.show.name,
+                rating:this.props.show.rating,
+                imageUrl:this.props.show.imageUrl,
+            }
+        })
     }
 
     renderShows = () => {
         return (
-            <TVShow name="Game of Thrones" selectHandler={this.tvShowSelected} />
+            <TVShow name={this.props.show.name} selectHandler={this.showSelected} />
         )
     }
 
@@ -21,14 +36,20 @@ export default class Manage extends Component {
                 {this.renderShows()}
                 <div className="show-box">
                     <div className="preview-head">
-                        <h2>Show Name</h2>
-                        <h3>Rating</h3>
+                        <h2>{this.state.selectedShow.name}</h2>
+                        <h3>{this.state.selectedShow.rating}</h3>
                     </div>
-                    <img src={require('../images/bobby.png')} alt="" />
+                    <h2>{this.state.selectedShow.imageUrl}</h2>
+                    {/*<img src={require(this.state.selectedShow.imageUrl)} alt="" />*/}
                 </div>
             </div>
         );
     }
 }
 
+PreviewPage.propTypes = {
+    show: PropTypes.object,
+}
+
+export default PreviewPage
 

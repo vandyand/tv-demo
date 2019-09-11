@@ -1,53 +1,39 @@
 import React, { Component } from 'react'
 import TVShow from '../components/tvShow'
+import PropTypes from 'prop-types'
 import '../App.css'
 
-export default class Manage extends Component {
+class ManagePage extends Component {
 
     state = {
-        inputName: 'default name',
-        inputRating: 'default rating',
-        inputImageUrl: 'default imageUrl',
-        showName: '',
-        showRating: '',
-        showImageUrl: '',
+        nameInProgress: '',
+        ratingInProgress: '',
+        imageInProgress: '',
     }
 
-    tvShowSelected = (stringFromChild) => {
-        console.log(stringFromChild);
+    showSelected = (stringFromChild) => {
         this.setState({
-            inputName: this.state.showName,
-            inputRating: this.state.showRating,
-            inputImageUrl: this.state.showImageUrl,
-        })
+            inputShow: this.props.show
+        });
     }
 
-    tvShowDeleted = () => {
-        this.setState({
-            showName: '',
-            showRating: '',
-            showImageUrl: ''
-        })
+    showDeleted = () => {
+        this.props.showDeleted();
     }
 
-    saveTVShow = () => {
+    saveShow = (show) => {
+        this.props.saveShow(show);
         this.setState({
-            showName: this.state.inputName,
-            showRating: this.state.inputRating,
-            showImageUrl: this.state.inputImageUrl,
-
-            inputName: "",
-            inputRating: "",
-            inputImageUrl: "",
-
+            nameInProgress:'',
+            ratingInProgress:'',
+            imageInProgress:'',
         })
     }
 
     renderShows = () => {
-        return (
-            <TVShow name={this.state.showName} allowDelete={true}
-                selectHandler={(e) => this.tvShowSelected(e)} deleteHandler={this.tvShowDeleted} />
-        )
+        return this.props.shows.map((show,ind) => {
+            return <TVShow key={ind} name={show.name} allowDelete={true} selectHandler={(e) => this.showSelected(e)} deleteHandler={this.showDeleted} />
+        })
     }
 
     render() {
@@ -62,27 +48,41 @@ export default class Manage extends Component {
                     <h2>New/Edit Show</h2>
                     <form className="manage-form">
                         <label className="manage-page-form">Name:</label>
-                        <input className="manage-page-form" type="text" value={this.state.inputName} onChange={(e) => {
+                        <input className="manage-page-form" type="text" value={this.state.nameInProgress} onChange={(e) => {
                             this.setState({
-                                inputName: e.target.value
+                                nameInProgress: e.target.value
                             })
                         }} />
                         <label className="manage-page-form">Rating:</label>
-                        <input className="manage-page-form" type="text" value={this.state.inputRating} onChange={(e) => {
+                        <input className="manage-page-form" type="text" value={this.state.ratingInProgress} onChange={(e) => {
                             this.setState({
-                                inputRating: e.target.value
+                                ratingInProgress: e.target.value
                             })
                         }} />
                         <label className="manage-page-form">ImageUrl:</label>
-                        <input className="manage-page-form" type="text" value={this.state.inputImageUrl} onChange={(e) => {
+                        <input className="manage-page-form" type="text" value={this.state.imageInProgress} onChange={(e) => {
                             this.setState({
-                                inputImageUrl: e.target.value
+                                imageInProgress: e.target.value
                             })
                         }} />
-                        <input className="button create-button" type="button" onClick={this.saveTVShow} value="Create/Update" />
+                        <input className="button create-button" type="button" onClick={()=>this.saveShow({
+                            name:this.state.nameInProgress,
+                            rating:this.state.ratingInProgress,
+                            image:this.state.imageInProgress,
+                        })} value="Create/Update" />
                     </form>
                 </div>
             </div>
         )
     }
 }
+
+
+ManagePage.propTypes = {
+    show: PropTypes.object,
+    showDelete: PropTypes.func,
+    saveShow: PropTypes.func,
+}
+
+
+export default ManagePage
