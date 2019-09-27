@@ -11,14 +11,13 @@ class ManagePage extends Component {
         imageInProgress: '',
     }
 
-    showSelected = (stringFromChild) => {
+    selectShow = (show) => {
+        console.log('manageShowSelect ran!!',show)
         this.setState({
-            inputShow: this.props.show
+            nameInProgress: show.name,
+            ratingInProgress: show.rating,
+            imageInProgress: show.image
         });
-    }
-
-    showDeleted = () => {
-        this.props.showDeleted();
     }
 
     saveShow = (show) => {
@@ -30,14 +29,22 @@ class ManagePage extends Component {
         })
     }
 
-    renderShows = () => {
-        // return this.props.shows.map((show,ind) => {
-        //     return <TVShow key={ind} name={show.name} allowDelete={true} selectHandler={(e) => this.showSelected(e)} deleteHandler={this.showDeleted} />
-        // })
+    deleteShow = (show) => {
+        this.props.deleteShow(show)
+    }
 
+    renderShows = () => {
         let shows = []
         for (let i = 0; i < this.props.shows.length; i++) {
-            shows.push(<TVShow key={i} name={this.props.shows[i].name} allowDelete={true} selectHandler={(e) => this.showSelected(e)} deleteHandler={this.showDeleted} />)
+            shows.push(
+                <TVShow
+                    key={i}
+                    show={this.props.shows[i]}
+                    allowDelete={true}
+                    tvShowSelect={this.selectShow}
+                    deleteShow={this.props.deleteShow}
+                />
+            )
         }
         return shows
     }

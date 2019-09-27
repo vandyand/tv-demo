@@ -6,7 +6,7 @@ class TVShow extends Component {
     renderDelete = () => {
         if (this.props.allowDelete === true) {
             return (
-                <button className="delete-button" onClick={this.props.deleteHandler}>x</button>
+                <button className="delete-button" onClick={()=>this.props.deleteShow(this.props.show)}>x</button>
             )
         }
     }
@@ -15,9 +15,7 @@ class TVShow extends Component {
         if (this.props.name !== "") {
             return (
                 <div className="show">
-                    <button className="button show-button" onClick={()=>this.props.selectHandler('message from child')}>
-                        {this.props.name}
-                    </button>
+                    <button className="button show-button" onClick={()=>this.props.tvShowSelect(this.props.show)}>{this.props.show.name}</button>
                     {this.renderDelete()}
                 </div>
             )
@@ -30,8 +28,9 @@ class TVShow extends Component {
 TVShow.propTypes = {
     name: PropTypes.string,
     allowDelete: PropTypes.bool,
-    deleteHandler: PropTypes.func,
-    selectHandler: PropTypes.func,
+    showId:PropTypes.number,
+    deleteShow: PropTypes.func,
+    selectShow: PropTypes.func,
 }
 
 export default TVShow

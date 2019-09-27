@@ -11,28 +11,56 @@ class App extends React.Component {
     shows: []
   }
 
+  componentDidMount = () => {
+    this.renderShows()
+  }
+
+  renderShows = () => {
+    fetch('http://localhost:3001')
+      .then(res => res.json())
+      .then(shows => {
+        this.setState({
+          shows: shows
+        })
+      })
+      .catch(err => console.log(err))
+
+  }
+
   renderManagePage = () => {
-    return <ManagePage shows={this.state.shows} showDeleted={this.showDeleted} saveShow={this.saveShow} />
+    return <ManagePage shows={this.state.shows} deleteShow={this.deleteShow} saveShow={this.saveShow} />
   }
 
   renderPreviewPage = () => {
     return <PreviewPage shows={this.state.shows} />
   }
 
-  showDeleted = (show) => {
-    this.setState({
-      
+  deleteShow = (showToDelete) => {
+    console.log('delete show called!', showToDelete)
+    fetch('http://localhost:3001', {
+      method: "delete",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ _id: showToDelete._id })
     })
+      .then()
+      .then( () => {return this.renderShows()} )
   }
 
   saveShow = (showToSave) => {
-    console.log('hello from app.js saveShow!')
-    this.setState((prevState)=>({
-      shows:[...prevState.shows,showToSave]
-    }))
+    fetch('http://localhost:3001', {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(showToSave)
+    })
+      .then()
+      .then( () => {return this.renderShows()} )
   }
+
   render() {
-    console.log('app.js state:',this.state)
     return (
       <div className="App" >
         <Navigation />
