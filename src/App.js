@@ -11,20 +11,28 @@ class App extends React.Component {
     shows: []
   }
 
-  componentDidMount = () => {
+  componentDidMount() {
     this.renderShows()
   }
 
-  renderShows = () => {
-    fetch('http://localhost:3001')
-      .then(res => res.json())
-      .then(shows => {
-        this.setState({
-          shows: shows
-        })
-        console.log(this.state.shows)
+  renderShows = async () => {
+    try {
+      const response = await fetch('http://localhost:3001')
+      this.setState({
+        shows: await response.json()
       })
-      .catch(err => console.log(err))
+    } catch (err) {
+      console.log(err)
+    }
+    // fetch('http://localhost:3001')
+    //   .then(res => res.json())
+    //   .then(shows => {
+    //     this.setState({
+    //       shows: shows
+    //     })
+    //     console.log(this.state.shows)
+    //   })
+    //   .catch(err => console.log(err))
   }
 
   renderManagePage = () => {
@@ -35,44 +43,44 @@ class App extends React.Component {
     return <PreviewPage shows={this.state.shows} />
   }
 
-  deleteShow = (showToDelete) => {
+  deleteShow = async (showToDelete) => {
     console.log('delete show called!', showToDelete)
-    fetch('http://localhost:3001', {
-      method: "delete",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ _id: showToDelete._id })
-    })
-      .then()
-      .then(() => { return this.renderShows() })
+    try {
+      const promise = await fetch('http://localhost:3001', {
+        method: "delete",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ _id: showToDelete._id })
+      })
+      this.renderShows()
+    } catch (err) {
+      console.log(err)
+    }
   }
 
-  createOrUpdateShow = (show) => {
+  createOrUpdateShow = async (show) => {
     if (show._id) {
       console.log("putting show now!", show)
-      fetch('http://localhost:3001', {
+      await fetch('http://localhost:3001', {
         method: "put",
         headers: {
           "Content-Type": "application/json"
         },
         body: JSON.stringify(show)
       })
-        .then()
-        .then(() => { return this.renderShows() })
     } else {
       console.log("posting show now!", show)
       delete show._id
-      fetch('http://localhost:3001', {
+      await fetch('http://localhost:3001', {
         method: "post",
         headers: {
           "Content-Type": "application/json"
         },
         body: JSON.stringify(show)
       })
-        .then()
-        .then(() => { return this.renderShows() })
     }
+    this.renderShows()
   }
 
   render() {
