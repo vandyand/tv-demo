@@ -22,8 +22,8 @@ class ManagePage extends Component {
         });
     }
 
-    saveShow = (show) => {
-        this.props.saveShow(show);
+    manageShow = (show) => {
+        this.props.createOrUpdateShow(show);
         this.setState({
             _idInProgress: '',
             nameInProgress: '',
@@ -81,7 +81,7 @@ class ManagePage extends Component {
                                 imageInProgress: e.target.value
                             })
                         }} />
-                        <input className="button create-button" type="button" onClick={() => this.saveShow({
+                        <input className="button create-button" type="button" onClick={() => this.manageShow({
                             _id: this.state._idInProgress,
                             name: this.state.nameInProgress,
                             rating: this.state.ratingInProgress,

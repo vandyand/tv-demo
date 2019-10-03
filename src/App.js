@@ -28,7 +28,7 @@ class App extends React.Component {
   }
 
   renderManagePage = () => {
-    return <ManagePage shows={this.state.shows} deleteShow={this.deleteShow} saveShow={this.saveShow} />
+    return <ManagePage shows={this.state.shows} deleteShow={this.deleteShow} createOrUpdateShow={this.createOrUpdateShow} />
   }
 
   renderPreviewPage = () => {
@@ -48,27 +48,27 @@ class App extends React.Component {
       .then(() => { return this.renderShows() })
   }
 
-  saveShow = (showToSave) => {
-    if (showToSave._id) {
-      console.log("putting show now!", showToSave)
+  createOrUpdateShow = (show) => {
+    if (show._id) {
+      console.log("putting show now!", show)
       fetch('http://localhost:3001', {
         method: "put",
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify(showToSave)
+        body: JSON.stringify(show)
       })
         .then()
         .then(() => { return this.renderShows() })
     } else {
-      console.log("posting show now!", showToSave)
-      delete showToSave._id
+      console.log("posting show now!", show)
+      delete show._id
       fetch('http://localhost:3001', {
         method: "post",
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify(showToSave)
+        body: JSON.stringify(show)
       })
         .then()
         .then(() => { return this.renderShows() })
