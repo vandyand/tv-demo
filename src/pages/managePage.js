@@ -6,14 +6,16 @@ import '../App.css'
 class ManagePage extends Component {
 
     state = {
+        _idInProgress: '',
         nameInProgress: '',
         ratingInProgress: '',
         imageInProgress: '',
     }
 
     selectShow = (show) => {
-        console.log('manageShowSelect ran!!',show)
+        console.log('managePage showSelect ran!!',show)
         this.setState({
+            _idInProgress: show._id,
             nameInProgress: show.name,
             ratingInProgress: show.rating,
             imageInProgress: show.image
@@ -23,6 +25,7 @@ class ManagePage extends Component {
     saveShow = (show) => {
         this.props.saveShow(show);
         this.setState({
+            _idInProgress: '',
             nameInProgress: '',
             ratingInProgress: '',
             imageInProgress: '',
@@ -79,6 +82,7 @@ class ManagePage extends Component {
                             })
                         }} />
                         <input className="button create-button" type="button" onClick={() => this.saveShow({
+                            _id: this.state._idInProgress,
                             name: this.state.nameInProgress,
                             rating: this.state.ratingInProgress,
                             image: this.state.imageInProgress,

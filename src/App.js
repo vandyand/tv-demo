@@ -22,9 +22,9 @@ class App extends React.Component {
         this.setState({
           shows: shows
         })
+        console.log(this.state.shows)
       })
       .catch(err => console.log(err))
-
   }
 
   renderManagePage = () => {
@@ -45,19 +45,34 @@ class App extends React.Component {
       body: JSON.stringify({ _id: showToDelete._id })
     })
       .then()
-      .then( () => {return this.renderShows()} )
+      .then(() => { return this.renderShows() })
   }
 
   saveShow = (showToSave) => {
-    fetch('http://localhost:3001', {
-      method: "post",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(showToSave)
-    })
-      .then()
-      .then( () => {return this.renderShows()} )
+    if (showToSave._id) {
+      console.log("putting show now!", showToSave)
+      fetch('http://localhost:3001', {
+        method: "put",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(showToSave)
+      })
+        .then()
+        .then(() => { return this.renderShows() })
+    } else {
+      console.log("posting show now!", showToSave)
+      delete showToSave._id
+      fetch('http://localhost:3001', {
+        method: "post",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(showToSave)
+      })
+        .then()
+        .then(() => { return this.renderShows() })
+    }
   }
 
   render() {
